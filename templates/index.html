@@ -31,6 +31,7 @@
 			background-color:#FF5858;
 			color:#fff;
 			text-align: center;
+			z-index:100;
 		}
 		
 		.section{
@@ -38,7 +39,8 @@
 			width:100%;
 			position:absolute;
 			left:0;	
-			top:0;
+			bottom:0;
+			transition:all ease-in-out .75s;
 		}
 		
 		a.btn{
@@ -59,22 +61,14 @@
 			padding: 17px 42px;
 			font-size:1.3em;
 		}
-		.expander{
-			width:0px;
-			height:0px;
-			position:absolute;
+		
+		.off-screen-section{
+			bottom:100%;
+		}
+		
+		.canvas{
 			display:none;
-			background-color:black;
-			transition:all ease-in-out 1s;
-			border-radius:100px;
 		}
-		
-		.expanded{
-			height:3000px;
-			width:3000px;
-			display:block;
-		}
-		
 	</style>
 </head>
 <body>
@@ -83,6 +77,17 @@
 			<h1>Name of the app</h1>
 			<h2>short description of the app Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, unde.</h2>
 			<a href="#" class="btn">Start Here!  <span class="expander"></span></a>
+		</div>
+		
+		<div class="section video-section">
+			<video id="video">Video stream not available.</video>
+    		<button id="startbutton">Take photo</button>
+			
+			<canvas id="canvas">
+			</canvas>
+			<div class="output">
+				<img id="photo" alt="The screen capture will appear in this box.">
+			</div>
 		</div>
 	</div>
 	
@@ -108,11 +113,8 @@
     <script type="text/javascript" src="qr/alignpat.js"></script>
     <script type="text/javascript" src="qr/databr.js"></script>
 	<script>
-		$(".pitch-section").swipe( {
-			//Generic swipe handler for all directions
-			swipeStatus:function(event, phase, direction, distance, duration, fingers, fingerData, currentDirection) {
-				console.log(direction, distance);
-			}
+		$('.pitch-section .btn').click(function(e){
+			$('.pitch-section').addClass("off-screen-section");
 		});
         
         qrcode.callback = function(data) {
@@ -128,7 +130,11 @@
         document.addEventListener("DOMContentLoaded", function() {
             //goToQR("code.png");
         });
-
+		
+		var video = $('video');
+		var canvas = $('canvas');
+		var photo = $("#photo");
+		var btn = $("#startbutton");
 	</script>
 </body>
 </html>
