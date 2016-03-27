@@ -3,12 +3,99 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Macy's App</title>
+	<link href='https://fonts.googleapis.com/css?family=Josefin+Sans:600,300,400|Playfair+Display|Montserrat' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<style>
+		body{
+			font-family: 'Montserrat', serif;
+			font-size:14px;
+			padding:0;
+			margin:0;
+		}
+		
+		h1{
+			margin-top:250px;
+			margin-bottom:5px;
+			font-family: 'Josefin Sans', sans-serif;
+			font-weight:300;
+			font-size:5.5em;
+		}
+		
+		h2{
+			max-width:40%;
+			margin:0 auto;
+			font-size:1.5em;
+		}
+		
+		.pitch-section{
+			background-color:#FF5858;
+			color:#fff;
+			text-align: center;
+		}
+		
+		.section{
+			height:100%;
+			width:100%;
+			position:absolute;
+			left:0;	
+			top:0;
+		}
+		
+		a.btn{
+			margin-top:30px;
+			text-decoration: none;
+			display:inline-block;
+			background-color:#4CC5FF;
+			color:#fff;
+			padding: 15px 40px;
+			border-radius: 6px;
+			font-size: 1.2em;
+			position: relative;
+			transition:all ease-in-out .25s; 
+		}
+		
+		a.btn:hover{
+			background-color:#68CEFF;
+			padding: 17px 42px;
+			font-size:1.3em;
+		}
+		.expander{
+			width:0px;
+			height:0px;
+			position:absolute;
+			display:none;
+			background-color:black;
+			transition:all ease-in-out 1s;
+			border-radius:100px;
+		}
+		
+		.expanded{
+			height:3000px;
+			width:3000px;
+			display:block;
+		}
+		
+	</style>
 </head>
 <body>
 	<div class="container">
-		<div class="wrapper">
-			
+		<div class="section pitch-section">
+			<h1>Name of the app</h1>
+			<h2>short description of the app Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, unde.</h2>
+			<a href="#" class="btn">Start Here!  <span class="expander"></span></a>
 		</div>
 	</div>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+	<script src="jquery.touchSwipe.min.js"></script>
+	<script>
+		$(".pitch-section").swipe( {
+			//Generic swipe handler for all directions
+			swipeStatus:function(event, phase, direction, distance, duration, fingers, fingerData, currentDirection) {
+				console.log(direction, distance);
+			}
+		});
+
+	</script>
 </body>
 </html>
