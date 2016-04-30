@@ -205,12 +205,58 @@
 		</div>
 	</div>
 	
+    <button>Send image</button>
+    
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+<<<<<<< HEAD:index.html
+=======
+	<script src="jquery.touchSwipe.min.js"></script>
+    <script type="text/javascript" src="qr/grid.js"></script>
+    <script type="text/javascript" src="qr/version.js"></script>
+    <script type="text/javascript" src="qr/detector.js"></script>
+    <script type="text/javascript" src="qr/formatinf.js"></script>
+    <script type="text/javascript" src="qr/errorlevel.js"></script>
+    <script type="text/javascript" src="qr/bitmat.js"></script>
+    <script type="text/javascript" src="qr/datablock.js"></script>
+    <script type="text/javascript" src="qr/bmparser.js"></script>
+    <script type="text/javascript" src="qr/datamask.js"></script>
+    <script type="text/javascript" src="qr/rsdecoder.js"></script>
+    <script type="text/javascript" src="qr/gf256poly.js"></script>
+    <script type="text/javascript" src="qr/gf256.js"></script>
+    <script type="text/javascript" src="qr/decoder.js"></script>
+    <script type="text/javascript" src="qr/qrcode.js"></script>
+    <script type="text/javascript" src="qr/findpat.js"></script>
+    <script type="text/javascript" src="qr/alignpat.js"></script>
+    <script type="text/javascript" src="qr/databr.js"></script>
+>>>>>>> 10fd7640e65121f29024401e04acd849d2e4bc67:templates/index.html
 	<script>
 		$('#image').change(function(e){
 			$('.pitch-section').addClass("off-screen-section");
+<<<<<<< HEAD:index.html
 			$('meta[name=theme-color]').attr('content', '#68CEFF');
 		});		
+=======
+		});
+        
+        qrcode.callback = function(data) {
+            
+            window.location.assign(data);
+        }
+        
+        function goToQR(imageUrl) {
+            
+            qrcode.decode(imageUrl);
+        }
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            //goToQR("code.png");
+        });
+		
+		var video = $('video');
+		var canvas = $('canvas');
+		var photo = $("#photo");
+		var btn = $("#startbutton");
+>>>>>>> 10fd7640e65121f29024401e04acd849d2e4bc67:templates/index.html
 	</script>
 </body>
 </html>
